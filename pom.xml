@@ -1,0 +1,93 @@
+<project
+    xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+    >
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.alexandrehd.mi</groupId>
+  <artifactId>mi-parent-pom</artifactId>
+  <version>0.1.0-SNAPSHOT</version>
+  <name>Modular Instrument Framework Parent Pom</name>
+  <description>Parent POM for Modular Instrument and related research</description>
+  <packaging>pom</packaging>
+  
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.10</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.jmock</groupId>
+      <artifactId>jmock-junit4</artifactId>
+      <version>2.5.1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.jmock</groupId>
+      <artifactId>jmock-legacy</artifactId>
+      <version>2.5.1</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.1</version>
+        <configuration>
+          <source>1.6</source>
+          <target>1.6</target>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>2.8</version>
+        <configuration>
+          <excludeScope>provided</excludeScope>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.16</version>
+        <configuration>
+          <includes>
+            <include>**/*.java</include>
+          </includes>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>2.2.1</version>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>jar-no-fork</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>2.9.1</version>
+        <configuration>
+          <stylesheetfile>new-javadoc-stylesheet.css</stylesheetfile>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
